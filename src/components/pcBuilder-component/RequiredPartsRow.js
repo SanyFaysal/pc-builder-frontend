@@ -9,8 +9,8 @@ const RequiredPartsRow = ({ item }) => {
   const { parts } = useSelector((state) => state.buildComponent);
 
   return (
-    <div className="flex justify-between items-center px-4 py-2 mb-2 border hover:bg-gray-50">
-      <div className="grid grid-cols-11 gap-2  ">
+    <div className="grid grid-cols-12 px-4 py-2 mb-3  hover:shadow hover:shadow-gray-400 border bg-white rounded-lg">
+      <div className="grid grid-cols-11 gap-2 col-span-11 mr-2">
         <div className="col-span-1">
           <Image src={item.image} width={70} height={70} alt=""></Image>
         </div>
@@ -26,14 +26,25 @@ const RequiredPartsRow = ({ item }) => {
         </div>
       </div>
 
-      <div className="">
-        <Link
-          href={item?.link}
-          className="bg-slate-700 px-5 py-3 rounded text-white  flex items-center gap-2"
-        >
-          <AiOutlinePlus className="text-white" /> Select
-        </Link>
-      </div>
+      {!parts[item?.category]?.category?.length ? (
+        <div className="col-span-1">
+          <Link
+            href={item?.link}
+            className="bg-slate-700 px-5 py-3 rounded text-white  flex items-center gap-2"
+          >
+            <AiOutlinePlus className="text-white" /> Select
+          </Link>
+        </div>
+      ) : (
+        <div className="col-span-1">
+          <button
+            className="bg-gray-400 px-5 py-3 rounded text-white  flex items-center gap-2 cursor-not-allowed"
+            disabled={true}
+          >
+            <AiOutlinePlus className="text-white" /> Select
+          </button>
+        </div>
+      )}
     </div>
   );
 };

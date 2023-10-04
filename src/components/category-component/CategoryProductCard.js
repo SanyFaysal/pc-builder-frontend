@@ -7,31 +7,51 @@ import {
 import { Avatar, Card } from 'antd';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { AiFillStar } from 'react-icons/ai';
 const { Meta } = Card;
-const CategoryProductCard = () => {
-  const { query } = useRouter();
+const CategoryProductCard = ({ product }) => {
+  const router = useRouter();
+
   return (
-    <div className="mx-auto border w-full">
-      <Image
-        width={200}
-        height={150}
-        alt=""
-        src="/assets/computer.avif"
-        className="mx-auto"
-      ></Image>
+    <div
+      onClick={() => router.push(`/productDetails/${product?._id}`)}
+      className="mx-auto rounded-lg shadow w-full bg-white   hover:shadow-lg"
+    >
+      <div className="p-4 h-[220px] flex items-center">
+        <Image
+          width={200}
+          height={150}
+          alt=""
+          src={product?.image}
+          className="mx-auto hover:scale-[1.05] transition  duration-300 ease-in-out"
+        ></Image>
+      </div>
       <div>
-        <p className="text-center text-lg font-semibold uppercase">
-          {query.category}
+        <h2 className="text-center text-lg font-semibold uppercase">
+          {product?.category}
+        </h2>
+        {/* <p className="text-center">{product?.name} </p> */}
+      </div>
+
+      <div className="flex justify-between items-center mb-2 px-12 mt-1">
+        <p className=" font-semibold gap-1 flex items-center ">
+          <AiFillStar className="text-orange-500" /> {product?.ratings}
         </p>
-        <p className="text-center">
-          G Skill Trident 16GB DDR5 RGB RAM Z5 Neo CL32-38-38-96
+
+        <p
+          className={`${
+            product?.status === 'In Stock'
+              ? 'bg-sky-50 text-sky-500 '
+              : 'bg-red-50 text-red-500'
+          }   px-4 text-sm py-1  rounded-xl`}
+        >
+          {product?.status}
         </p>
       </div>
-      <div className="flex justify-between my-4 px-5">
-        <span className="text-sky-500 font-semibold">12500 TK</span>
-        <span>In Stock</span>
+      <div className="mb-2">
+        <p className=" font-semibold text-lg text-center">${product?.price}</p>
       </div>
-      <button className="w-full bg-sky-100 font-medium py-3 hover:text-sky-600">
+      <button className="w-full  font-medium py-3 bg-slate-800 text-white hover:text-sky-500 rounded-b-lg">
         {' '}
         Buy Now
       </button>

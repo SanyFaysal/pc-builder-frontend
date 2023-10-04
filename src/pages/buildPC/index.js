@@ -18,40 +18,43 @@ const list = [
     title: 'CPU / Processor',
     category: 'cpu_processor',
     link: '/buildPC/category/cpu_processor',
-    image: '/assets/motherboard.png',
+    image: '/assets/cpu_processor.png',
   },
   {
     title: 'Monitor',
     category: 'monitor',
     link: '/buildPC/category/monitor',
-    image: '/assets/motherboard.png',
+    image: '/assets/monitor.png',
   },
   {
     title: 'RAM',
     category: 'ram',
     link: '/buildPC/category/ram',
-    image: '/assets/motherboard.png',
+    image: '/assets/ram.png',
   },
   {
     title: 'Power Supply Unit',
     category: 'power_supply_unit',
     link: '/buildPC/category/power_supply_unit',
-    image: '/assets/motherboard.png',
+    image: '/assets/power_supply.png',
   },
   {
     title: 'Storage Device',
     category: 'storage_device',
     link: '/buildPC/category/storage_device',
-    image: '/assets/motherboard.png',
+    image: '/assets/storage_device.png',
   },
 ];
 const BuildPC = () => {
   const dispatch = useDispatch();
-  const { parts } = useSelector((state) => state.buildComponent);
+  const { parts, totalComponents } = useSelector(
+    (state) => state.buildComponent
+  );
   let total = subBuildPcCost(parts);
   const hanClearAll = () => {
     dispatch(clearBuild());
   };
+  console.log({ totalComponents });
   return (
     <div className="lg:mx-28 my-12  ">
       <div className="mb-4 flex justify-between items-center ">
@@ -59,7 +62,7 @@ const BuildPC = () => {
           <h2 className="text-3xl mb-2">Build Your Dream Computer</h2>
           <p1 className="text-lg">
             Total Amount :{' '}
-            <span className=" text-2xl">{total ? total : '00'}</span> Tk
+            <span className=" text-2xl">${total ? total : '00'}</span>
           </p1>
         </div>
         <div className="flex gap-4">
@@ -69,8 +72,12 @@ const BuildPC = () => {
           >
             Clear All
           </button>
-          <button className="bg-sky-500  px-5 py-2 text-white rounded">
-            Build
+          <button
+            disabled={totalComponents !== 6}
+            className="bg-sky-500  px-5 py-2 text-white rounded disabled:bg-sky-200 disabled:cursor-not-allowed "
+            value={'Complete Build'}
+          >
+            Complete Build
           </button>
         </div>
       </div>

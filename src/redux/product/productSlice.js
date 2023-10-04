@@ -10,6 +10,7 @@ const initialState = {
     monitor: {},
     others: {},
   },
+  totalComponents: 0,
 };
 
 export const productSlice = createSlice({
@@ -18,6 +19,7 @@ export const productSlice = createSlice({
   reducers: {
     setBuild: (state, { payload }) => {
       state.parts[payload.category] = payload;
+      state.totalComponents += 1;
     },
     clearBuild: (state) => {
       state.parts = {
@@ -29,9 +31,11 @@ export const productSlice = createSlice({
         monitor: {},
         others: {},
       };
+      state.totalComponents = 0;
     },
     removeSingleBuild: (state, { payload }) => {
       state.parts[payload.category] = {};
+      state.totalComponents -= 1;
     },
   },
 });

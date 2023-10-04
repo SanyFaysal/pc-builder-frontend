@@ -3,14 +3,21 @@ import { FaComputer } from 'react-icons/fa6';
 import { BiChevronDown } from 'react-icons/bi';
 import { useState } from 'react';
 import Link from 'next/link';
+import { categoriesData } from '@/data/categoriesData';
+import { useRouter } from 'next/router';
 const { Header, Content, Footer } = Layout;
 const LayOut = ({ children }) => {
+  const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const handleNavigate = (category) => {
+    router.push(category.link);
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   return (
     <Layout className="layout">
       <Header
@@ -58,67 +65,20 @@ const LayOut = ({ children }) => {
                     id="dropdown"
                     className="z-10 text-start absolute mt-2  border  rounded-lg bg-slate-800 text-white shadow-lg w-44"
                   >
-                    <ul
+                    <div
                       className=" text-sm  dark:text-gray-200"
                       aria-labelledby="dropdownDefaultButton"
                     >
-                      <li>
-                        <Link
-                          href="/category/cpu"
-                          className="block px-4 py-2 font-medium border-b border-white   dark:hover:bg-gray-600 "
+                      {categoriesData?.map((category) => (
+                        <p
+                          key={category?.title}
+                          onClick={() => handleNavigate(category)}
+                          className="block px-4 py-2 font-medium border-b border-white hover:cursor-pointer   dark:hover:bg-gray-600 "
                         >
-                          CPU / Processor
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/category/motherboard"
-                          className="block px-4 py-2 font-medium border-b border-white   dark:hover:bg-gray-600 "
-                        >
-                          Motherboard
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/category/ram"
-                          className="block px-4 py-2 font-medium border-b border-white   dark:hover:bg-gray-600 "
-                        >
-                          RAM
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/category/power-supply-unit"
-                          className="block px-4 py-2 font-medium border-b border-white   dark:hover:bg-gray-600 "
-                        >
-                          Power Supply Unit
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/category/storage-device"
-                          className="block px-4 py-2 font-medium border-b border-white   dark:hover:bg-gray-600 "
-                        >
-                          Storage Supply Unit
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/category/monitor"
-                          className="block px-4 py-2 font-medium border-b border-white   dark:hover:bg-gray-600 "
-                        >
-                          Monitor
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/category/others"
-                          className="block px-4 py-2 font-medium border-b border-white   dark:hover:bg-gray-600 "
-                        >
-                          Others
-                        </Link>
-                      </li>
-                    </ul>
+                          {category.title}
+                        </p>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -136,7 +96,7 @@ const LayOut = ({ children }) => {
           </div>
         </nav>
       </Header>
-      <content className="bg-white w-full">
+      <content className="bg-gray-100 w-full">
         <main className="">{children}</main>
       </content>
       {/* <Footer style={{ textAlign: 'center' }}>

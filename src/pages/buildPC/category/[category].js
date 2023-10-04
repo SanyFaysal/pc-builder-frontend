@@ -2,7 +2,7 @@ import BuildPcCard from '@/components/pcBuilder-component/BuildPcCard';
 import { useParams } from 'next/navigation';
 import { useRouter } from 'next/router';
 
-const Category = () => {
+const Category = ({ products }) => {
   const { query } = useRouter();
 
   return (
@@ -14,12 +14,19 @@ const Category = () => {
         </h1>
       </div>
       <div className="grid grid-cols-4 gap-5">
-        {[1, 1, 0, 1, 1, 11, 1, 1].map((i, index) => (
-          <BuildPcCard key={index} />
+        {products.map((product, index) => (
+          <BuildPcCard key={index} product={product} />
         ))}
       </div>
     </div>
   );
 };
+
+export async function getServerSideProps({ query }) {
+  const res = await fetch(`http://localhost:5000/products/${query.category}`);
+  const { data: products } = await res.json();
+
+  return { props: { products } };
+}
 
 export default Category;
