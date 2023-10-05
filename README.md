@@ -4,7 +4,7 @@ PC Forge is a web-based PC builder platform that allows users to customize and b
 
 ## Live Demo
 
-Check out the live demo of PC Forge [here](http://localhost:5000).
+Check out the live demo of PC Forge [here](http://localhost:3000).
 
 ## Features
 
