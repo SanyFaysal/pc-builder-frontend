@@ -35,4 +35,10 @@ export const categoriesData = [
     link: '/category/storage_device',
     image: '/assets/storage_device.png',
   },
+  {
+    title: 'Others',
+    category: 'others',
+    link: '/category/others',
+    image: '/assets/storage_device.png',
+  },
 ];

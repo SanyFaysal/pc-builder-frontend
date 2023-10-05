@@ -44,6 +44,12 @@ const list = [
     link: '/buildPC/category/storage_device',
     image: '/assets/storage_device.png',
   },
+  {
+    title: 'Others',
+    category: 'others',
+    link: '/buildPC/category/others',
+    image: '/assets/others.png',
+  },
 ];
 const BuildPC = () => {
   const dispatch = useDispatch();

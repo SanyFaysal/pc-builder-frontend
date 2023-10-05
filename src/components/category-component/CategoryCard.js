@@ -22,7 +22,7 @@ const CategoryCard = ({ category }) => {
         src={category?.image}
         className="mx-auto hover:scale-[1.05] transition  duration-300 ease-in-out"
       ></Image>
-      <div>
+      <div className="mt-3">
         <p className="text-center text-lg font-semibold uppercase">
           {/* {query.category} */}
           {category?.title}

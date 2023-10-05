@@ -11,7 +11,9 @@ const Category = ({ products }) => {
       <div>
         {/* <h3 className="text-4xl text-center "> Choose Your Dream </h3> */}
         <h1 className="lg:text-6xl text-2xl text-center uppercase mb-8">
-          {query.category}
+          {query.category === 'others'
+            ? query?.category + ' Accessories'
+            : query?.category}
         </h1>
       </div>
       <div className="grid lg:grid-cols-4 gap-5">

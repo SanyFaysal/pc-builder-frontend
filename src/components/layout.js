@@ -99,9 +99,9 @@ const LayOut = ({ children }) => {
       <content className="bg-gray-100 w-full">
         <main className="">{children}</main>
       </content>
-      {/* <Footer style={{ textAlign: 'center' }}>
-        Ant Design ©2023 Created by Ant UED
-      </Footer> */}
+      <Footer style={{ textAlign: 'center' }}>
+        © PC Forge. All Rights Reserved. ``
+      </Footer>
     </Layout>
   );
 };

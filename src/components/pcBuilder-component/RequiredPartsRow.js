@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { AiOutlinePlus } from 'react-icons/ai';
+import { AiOutlineCheckCircle, AiOutlinePlus } from 'react-icons/ai';
 import { useSelector } from 'react-redux';
 import SelectedPartsCard from './SelectedPartsCard';
 
@@ -15,14 +15,29 @@ const RequiredPartsRow = ({ item }) => {
           <Image src={item.image} width={70} height={70} alt=""></Image>
         </div>
         <div className="col-span-10">
-          <h4 className="font-medium text-lg">
-            {item?.title} <span className="text-red-500 text-xl">*</span>
+          <h4 className="font-medium text-lg flex gap-2 items-center">
+            {item?.title}
+            {parts[item?.category]?.category?.length ? (
+              <AiOutlineCheckCircle className="text-green-500 text-xl" />
+            ) : (
+              <span className="text-red-500 text-xl">
+                {item?.category !== 'others' && '*'}
+              </span>
+            )}
           </h4>
-          {parts[item?.category]?.category?.length ? (
-            <SelectedPartsCard item={parts[item?.category]} />
-          ) : (
-            <p>Select a {item?.title}</p>
-          )}
+          <>
+            {parts[item?.category]?.category?.length ? (
+              <SelectedPartsCard item={parts[item?.category]} />
+            ) : (
+              <p>Select {item?.title}</p>
+            )}
+          </>
+          <>
+            {item?.category === 'others' &&
+              parts[item?.category]?.map((product) => (
+                <SelectedPartsCard key={product?._id} item={product} />
+              ))}
+          </>
         </div>
       </div>
 
@@ -32,7 +47,10 @@ const RequiredPartsRow = ({ item }) => {
             href={item?.link}
             className="bg-slate-700 px-5 py-3 rounded text-white  flex items-center gap-2"
           >
-            <AiOutlinePlus className="text-white" /> Select
+            <span>
+              <AiOutlinePlus className="text-white " />
+            </span>{' '}
+            Select
           </Link>
         </div>
       ) : (

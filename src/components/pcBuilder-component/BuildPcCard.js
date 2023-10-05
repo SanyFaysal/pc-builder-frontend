@@ -23,7 +23,7 @@ const BuildPcCard = ({ product }) => {
   return (
     <div className="mx-auto rounded-lg shadow w-full bg-white   hover:shadow-lg">
       <div onClick={() => router.push(`/productDetails/${product?._id}`)}>
-        <div className="p-4 h-[220px] flex items-center">
+        <div className="p-6 mt-2 h-[200px] flex items-center">
           <Image
             width={200}
             height={150}
@@ -33,10 +33,12 @@ const BuildPcCard = ({ product }) => {
           ></Image>
         </div>
         <div>
-          <h2 className="text-center text-lg font-semibold uppercase">
-            {product?.category}
+          <h2 className="text-center  font-semibold uppercase">
+            {product?.category == 'others'
+              ? product?.subCategory
+              : product?.category}
           </h2>
-          {/* <p className="text-center">{product?.name} </p> */}
+          <p className="text-center text-lg h-[60px] mx-2">{product?.name} </p>
         </div>
 
         <div className="flex justify-between items-center mb-2 px-12 mt-1">
