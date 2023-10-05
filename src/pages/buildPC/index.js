@@ -5,6 +5,7 @@ import { Avatar, List, Skeleton } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 const list = [
@@ -82,6 +83,7 @@ const BuildPC = () => {
             disabled={totalComponents !== 6}
             className="bg-sky-500  px-5 py-2 text-white rounded disabled:bg-sky-200 disabled:cursor-not-allowed "
             value={'Complete Build'}
+            onClick={() => toast.success('Build success!!!')}
           >
             Complete Build
           </button>

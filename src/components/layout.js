@@ -1,12 +1,17 @@
 import { Breadcrumb, Layout, Menu, theme, Button } from 'antd';
-import { FaComputer } from 'react-icons/fa6';
+import { FaCircleUser, FaComputer } from 'react-icons/fa6';
+import { HiOutlineUser, HiOutlineUserCircle } from 'react-icons/hi';
 import { BiChevronDown } from 'react-icons/bi';
 import { useState } from 'react';
 import Link from 'next/link';
 import { categoriesData } from '@/data/categoriesData';
 import { useRouter } from 'next/router';
+import { signOut, useSession } from 'next-auth/react';
+import { AiOutlineLogout } from 'react-icons/ai';
 const { Header, Content, Footer } = Layout;
 const LayOut = ({ children }) => {
+  const { data: session } = useSession();
+
   const router = useRouter();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -33,7 +38,7 @@ const LayOut = ({ children }) => {
               <FaComputer className="text-3xl " />
               <span className=" font-[500]">PC FORGE</span>
             </Link>
-            <div className="flex items-center gap-10 text-lg">
+            <div className="flex items-center gap-y-10 gap-x-5 text-lg">
               <div className="relative inline-block text-center">
                 <button
                   id="dropdownDefaultButton"
@@ -92,6 +97,18 @@ const LayOut = ({ children }) => {
                   PC Builder
                 </Button>
               </Link>
+              {!session?.user ? (
+                <Link href="/login">Login</Link>
+              ) : (
+                <>
+                  <button onClick={() => router.push('/profile')}>
+                    <HiOutlineUser className="text-2xl text-" />
+                  </button>
+                  <button onClick={() => signOut()}>
+                    <AiOutlineLogout className="text-2xl" />
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </nav>
