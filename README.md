@@ -29,25 +29,10 @@ Make sure you have Node.js and npm installed on your system.
 
 - **Frontend**: Tailwind CSS, Next.js
 - **Backend**: Node.js, Express.js
-- **Database**: MongoDB (or your preferred database)
+- **Database**: MongoDB
 - **Authentication**: NextAuth
 
 ## Project Structure
 
 - **Server-Side Rendering (SSR)**: The PC builder page is implemented using SSR, ensuring a fast and efficient rendering process on the server-side. SSR enhances the user experience by providing quicker initial loading times.
 - **Static Site Generation (SSG)**: The categories and product details pages are generated using SSG. SSG pre-builds these pages at build time, ensuring optimal performance and minimal server load when users access these static content pages.
-
-## Getting Started
-
-To get started with the project, follow these steps:
-
-1. Clone the repository: `git clone https://github.com/your-username/pc-forge.git`
-2. Navigate to the project directory: `cd pc-forge`
-3. Install dependencies: `npm install`
-4. Start the development server: `npm run dev`
-
-Make sure you have Node.js and npm installed on your system.
-
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or create a pull request.
