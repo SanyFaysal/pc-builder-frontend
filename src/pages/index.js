@@ -26,7 +26,7 @@ export default function Home({ products }) {
 }
 export async function getStaticProps() {
   const res = await fetch(
-    'https://pc-builder-server-gamma.vercel.app/products'
+    'https://pc-builder-server-hfm7oupw6-sanyfaysal.vercel.app/products'
   );
   const { data: products } = await res.json();
   return {
