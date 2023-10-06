@@ -4,9 +4,9 @@ PC Forge is a web-based PC builder platform that allows users to customize and b
 
 ## Live Demo
 
-#### Check out the live demo of PC Forge [here](https://pc-builder-frontend-omega.vercel.app/)
+### Check out the live demo of PC Forge [here](https://pc-builder-frontend-omega.vercel.app/)
 
-#### Live Code Link : [here](https://github.com/SanyFaysal/pc-builder-frontend)
+### Live Code Link : [here](https://github.com/SanyFaysal/pc-builder-frontend)
 
 ## Features
 
