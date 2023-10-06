@@ -64,7 +64,7 @@ const ProductDetails = ({ product }) => {
 
 export async function getStaticPaths() {
   const res = await fetch(
-    'https://pc-builder-server-hfm7oupw6-sanyfaysal.vercel.app/products'
+    'https://pc-builder-server-0x6d.onrender.com/products'
   );
   const { data: products } = await res.json();
   const paths = products?.map((product) => ({
@@ -75,7 +75,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const res = await fetch(
-    `https://pc-builder-server-hfm7oupw6-sanyfaysal.vercel.app/productDetails/${params.id}`
+    `https://pc-builder-server-0x6d.onrender.com/productDetails/${params.id}`
   );
   const product = await res.json();
   console.log({ productDetails: product });
