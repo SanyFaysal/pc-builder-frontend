@@ -63,8 +63,8 @@ const BuildPC = () => {
   };
   console.log({ totalComponents });
   return (
-    <div className="lg:mx-28 my-12  ">
-      <div className="mb-4 flex justify-between items-center ">
+    <div className="lg:mx-28 mx-6 my-12  ">
+      <div className="mb-4 lg:flex  justify-between items-center ">
         <div>
           <h2 className="text-3xl mb-2">Build Your Dream Computer</h2>
           <p1 className="text-lg">
@@ -72,7 +72,7 @@ const BuildPC = () => {
             <span className=" text-2xl">${total ? total : '00'}</span>
           </p1>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 lg:mt-0 mt-3">
           <button
             onClick={hanClearAll}
             className="bg-red-500  px-5 py-2 text-white rounded"

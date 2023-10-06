@@ -24,17 +24,30 @@ const LayOut = ({ children }) => {
     setIsDropdownOpen(!isDropdownOpen);
   };
   return (
-    <Layout className="layout">
-      <Header
+    <Layout className="layout ">
+      <header
         style={{ display: 'flex', alignItems: 'center' }}
-        className="bg-slate-800"
+        className="bg-slate-800 py-3 sticky top-0"
       >
-        <nav className=" text-white w-full">
+        <nav className=" text-white w-full h-75 lg:px-28 px-6">
+          <div className="lg:hidden ">
+            <Link
+              href="/"
+              className="justify-center text-xl flex none items-center gap-1  mb-3"
+            >
+              <FaComputer className="text-3xl " />
+              <span className=" font-[500]">PC FORGE</span>
+            </Link>
+          </div>
+
           <div
-            className="  flex justify-between items-center"
+            className="  flex lg:justify-between lg items-center"
             id="navbar-default"
           >
-            <Link href="/" className=" text-xl flex items-center gap-1">
+            <Link
+              href="/"
+              className=" text-xl lg:flex items-center gap-1  hidden"
+            >
               <FaComputer className="text-3xl " />
               <span className=" font-[500]">PC FORGE</span>
             </Link>
@@ -112,7 +125,7 @@ const LayOut = ({ children }) => {
             </div>
           </div>
         </nav>
-      </Header>
+      </header>
       <content className="bg-gray-100 w-full">
         <main className="">{children}</main>
       </content>

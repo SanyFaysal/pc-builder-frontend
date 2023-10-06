@@ -45,21 +45,22 @@ const RequiredPartsRow = ({ item }) => {
         <div className="col-span-1">
           <Link
             href={item?.link}
-            className="bg-slate-700 px-5 py-3 rounded text-white  flex items-center gap-2"
+            className="bg-slate-700 px-5 py-3 rounded text-white  flex justify-center items-center gap-2"
           >
             <span>
               <AiOutlinePlus className="text-white " />
             </span>{' '}
-            Select
+            <span className="hidden lg:inline"> Select</span>
           </Link>
         </div>
       ) : (
         <div className="col-span-1">
           <button
-            className="bg-gray-400 px-5 py-3 rounded text-white  flex items-center gap-2 cursor-not-allowed"
+            className="bg-gray-400 lg:px-5 px-3 py-3 rounded text-white justify-center  flex items-center gap-2 cursor-not-allowed"
             disabled={true}
           >
-            <AiOutlinePlus className="text-white" /> Select
+            <AiOutlinePlus className="text-white" />
+            <span className="hidden lg:inline"> Select</span>
           </button>
         </div>
       )}
