@@ -20,7 +20,12 @@ const Banner = () => {
             </h1>
           </div>
 
-          <Image src="/banner1.png" width={400} height={500} alt="Computer " />
+          <Image
+            src="/assets/banner1.png"
+            width={400}
+            height={500}
+            alt="Computer "
+          />
         </div>
       </div>
       <div className="bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-green-400 to-slate-200">
@@ -40,7 +45,7 @@ const Banner = () => {
 
           <div>
             <Image
-              src="/banner1.png"
+              src="/assets/banner1.png"
               width={400}
               height={500}
               alt="Computer "
