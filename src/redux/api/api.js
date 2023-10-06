@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 // Define our single API slice object
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:5000/',
+    baseUrl: 'https://pc-builder-server-gamma.vercel.app/',
   }),
   endpoints: (builder) => ({
     getNewses: builder.query({

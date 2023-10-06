@@ -25,7 +25,9 @@ const Category = ({ products }) => {
 };
 
 export async function getServerSideProps({ query }) {
-  const res = await fetch(`http://localhost:5000/products/${query.category}`);
+  const res = await fetch(
+    `https://pc-builder-server-gamma.vercel.app/products/${query.category}`
+  );
   const { data: products } = await res.json();
 
   return { props: { products } };
