@@ -9,7 +9,7 @@ const Category = ({ products }) => {
     <div className="px-28 my-12">
       <div>
         <h3 className="text-3xl text-center "> Choose Your Dream </h3>
-        <h1 className="text-6xl text-center uppercase mb-8">
+        <h1 className="text-6xl kd text-center uppercase mb-8">
           {query.category === 'others'
             ? query?.category + ' Accessories'
             : query?.category}
