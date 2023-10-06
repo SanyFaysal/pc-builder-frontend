@@ -29,7 +29,7 @@ const Banner = () => {
         </div>
       </div>
       <div className="bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-green-400 to-slate-200">
-        <div className="flex flex-col-reverse justify-between items-center lg:px-28 px-6 lg:my-20 mt-8">
+        <div className="flex lg:flex-row flex-col-reverse justify-between items-center lg:px-28 px-6 lg:my-20 mt-8">
           <div className="">
             <h1 className="mt-10 lg:text-[50px] font-[800] text-orange-10 ">
               {' '}
