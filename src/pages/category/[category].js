@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 const Category = ({ products }) => {
   const { query } = useRouter();
-  console.log({ products });
+
   return (
     <div className="lg:px-28 my-12">
       <div>
