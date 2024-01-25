@@ -1,13 +1,13 @@
-import { Breadcrumb, Layout, Menu, theme, Button } from 'antd';
-import { FaCircleUser, FaComputer } from 'react-icons/fa6';
-import { HiOutlineUser, HiOutlineUserCircle } from 'react-icons/hi';
-import { BiChevronDown } from 'react-icons/bi';
-import { useState } from 'react';
-import Link from 'next/link';
-import { categoriesData } from '@/data/categoriesData';
-import { useRouter } from 'next/router';
-import { signOut, useSession } from 'next-auth/react';
-import { AiOutlineLogout } from 'react-icons/ai';
+import { Breadcrumb, Layout, Menu, theme, Button } from "antd";
+import { FaCircleUser, FaComputer } from "react-icons/fa6";
+import { HiOutlineUser, HiOutlineUserCircle } from "react-icons/hi";
+import { BiChevronDown } from "react-icons/bi";
+import { useState } from "react";
+import Link from "next/link";
+import { categoriesData } from "@/data/categoriesData";
+import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react";
+import { AiOutlineLogout } from "react-icons/ai";
 const { Header, Content, Footer } = Layout;
 const LayOut = ({ children }) => {
   const { data: session } = useSession();
@@ -26,8 +26,8 @@ const LayOut = ({ children }) => {
   return (
     <Layout className="layout ">
       <header
-        style={{ display: 'flex', alignItems: 'center' }}
-        className="bg-slate-800 py-3 sticky top-0"
+        style={{ display: "flex", alignItems: "center" }}
+        className="bg-slate-800 py-3 sticky top-0 z-[9999]"
       >
         <nav className=" text-white w-full h-75 lg:px-28 px-6">
           <div className="lg:hidden ">
@@ -62,7 +62,7 @@ const LayOut = ({ children }) => {
                   Categories
                   <svg
                     className={`w-2.5 h-2.5 ml-2.5 transition-transform ${
-                      isDropdownOpen ? 'transform rotate-180' : ''
+                      isDropdownOpen ? "transform rotate-180" : ""
                     }`}
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ const LayOut = ({ children }) => {
                 {isDropdownOpen && (
                   <div
                     id="dropdown"
-                    className="z-10 text-start absolute mt-2  border  rounded-lg bg-slate-800 text-white shadow-lg w-44"
+                    className=" text-start absolute mt-2  border  rounded-lg bg-slate-800 text-white shadow-lg w-44"
                   >
                     <div
                       className=" text-sm  dark:text-gray-200"
@@ -101,10 +101,10 @@ const LayOut = ({ children }) => {
                 )}
               </div>
 
-              <Link href={'/buildPC'}>
+              <Link href={"/buildPC"}>
                 <Button
                   type="primary"
-                  size={'large'}
+                  size={"large"}
                   className="border-blue-400"
                 >
                   PC Builder
@@ -114,7 +114,7 @@ const LayOut = ({ children }) => {
                 <Link href="/login">Login</Link>
               ) : (
                 <>
-                  <button onClick={() => router.push('/profile')}>
+                  <button onClick={() => router.push("/profile")}>
                     <HiOutlineUser className="text-2xl text-" />
                   </button>
                   <button onClick={() => signOut()}>
@@ -129,7 +129,7 @@ const LayOut = ({ children }) => {
       <content className="bg-gray-100 w-full">
         <main className="">{children}</main>
       </content>
-      <Footer style={{ textAlign: 'center' }}>
+      <Footer style={{ textAlign: "center" }}>
         © PC Forge. All Rights Reserved. ``
       </Footer>
     </Layout>
