@@ -1,5 +1,5 @@
-import { useSession, signIn, signOut } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function Login() {
   return (
@@ -9,7 +9,9 @@ export default function Login() {
         <button
           className="bg-sky-500 px-28 mt-2 text-white rounded-lg py-2"
           onClick={() =>
-            signIn('google', { callbackUrl: 'http://localhost:3000/' })
+            signIn("google", {
+              callbackUrl: "https://vercel.com/sanyfaysal/pc-builder-frontend/",
+            })
           }
         >
           Sign in
